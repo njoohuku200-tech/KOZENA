@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kozena Premium Ultimate</title>
+<style>
+body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:linear-gradient(180deg,#fff9d6,#ffffff);}
+.header{padding:18px;background:linear-gradient(90deg,#ffd700,#ffb700);font-size:32px;font-weight:700;text-align:center;}
+.hero{margin:15px;padding:25px;border-radius:25px;background:linear-gradient(135deg,#ffd700,#ffb700);box-shadow:0 8px 20px rgba(0,0,0,.15);text-align:center;}
+.hero h1{font-size:42px;margin:10px 0;color:#222;}
+.btn,.chat,.sw-btn{cursor:pointer;border:none;text-decoration:none}
+.btn{display:inline-block;padding:14px 28px;background:#222;color:white;border-radius:30px;font-weight:bold;}
+.section{padding:15px;}
+.title{font-size:28px;font-weight:bold;margin-bottom:10px;}
+.card{background:white;border-radius:20px;padding:14px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 3px 12px rgba(0,0,0,.08);}
+.avatar{width:55px;height:55px;border-radius:50%;background:#ffd700;display:flex;align-items:center;justify-content:center;font-weight:bold;}
+.left{display:flex;gap:12px;align-items:center;}
+.status{color:green;font-size:13px;}
+.chat{background:#ffd700;padding:10px 20px;border-radius:25px;color:#222;font-weight:bold;}
+.sw-box{margin:15px;padding:20px;background:#222;color:white;border-radius:20px;text-align:center;}
+.sw-btn{display:block;margin:10px auto;max-width:320px;padding:14px;background:#ffd700;color:#222;font-weight:bold;border-radius:15px;}
+.page{display:none}.active{display:block}
+.chatbox,.benefits,.register{background:#fff;padding:20px;border-radius:20px;margin:15px;box-shadow:0 3px 12px rgba(0,0,0,.08);}
+.msg{background:#f1f1f1;padding:10px;border-radius:12px;margin:10px 0;}
+.whatsapp{background:#25D366 !important;color:white !important;}
+input{width:100%;padding:12px;margin:8px 0;border:1px solid #ccc;border-radius:10px;}
+</style>
+</head>
+<body>
+
+<div id="home" class="page active">
+<div class="header">💬 KOZENA PREMIUM CHAT</div>
+
+<div class="hero">
+<h1>TSh 20,769 - 93,462</h1>
+<p>Pata fursa ya kuzungumza na watu kutoka mataifa mbalimbali.</p>
+<button class="btn" onclick="showRegister()">ANZA SASA</button>
+</div>
+
+<div class="section">
+<div class="title">🌍 Watumiaji Wapo Mtandaoni</div>
+
+<div class="card"><div class="left"><div class="avatar">SJ</div><div><b>Susan J.</b><div class="status">🟢 Active now</div></div></div><button class="chat" onclick="openChat('Susan J.')">Chat</button></div>
+
+<div class="card"><div class="left"><div class="avatar">JM</div><div><b>James M.</b><div class="status">🟢 Active now</div></div></div><button class="chat" onclick="openChat('James M.')">Chat</button></div>
+
+<div class="card"><div class="left"><div class="avatar">FG</div><div><b>Frank G.</b><div class="status">🟢 Active now</div></div></div><button class="chat" onclick="openChat('Frank G.')">Chat</button></div>
+</div>
+
+<div class="sw-box">
+<h2>🇹🇿 Karibu Kozena</h2>
+<p>Bonyeza kitufe chochote hapa chini kuendelea.</p>
+<button class="sw-btn" onclick="showRegister()">👉 JISAJILI SASA</button>
+<button class="sw-btn" onclick="showBenefits()">📖 TAZAMA ZAIDI</button>
+<a class="sw-btn whatsapp" href="https://wa.me/255742795400">📱 DM WHATSAPP 0742795400</a>
+</div>
+</div>
+
+<div id="chatPage" class="page">
+<div class="chatbox">
+<h2 id="chatName"></h2>
+<div class="msg">Hello 👋</div>
+<div class="msg" id="typing">Anaandika...</div>
+<div class="msg" id="reply" style="display:none;">Karibu Kozena. Ili kuendelea na mazungumzo tafadhali jisajili kwanza.</div>
+<button class="btn" id="continueBtn" style="display:none;" onclick="showRegister()">Endelea</button>
+</div>
+</div>
+
+<div id="benefitsPage" class="page">
+<div class="benefits">
+<h2>🎁 Faida za Kujiunga</h2>
+<ul>
+<li>Bonasi ya papo hapo.</li>
+<li>Bonasi za promosheni maalum.</li>
+<li>Bonasi ya mwezi mzima bure.</li>
+<li>Prediction bure.</li>
+<li>Huduma za kuuza biashara.</li>
+</ul>
+<button class="btn" onclick="goHome()">Rudi Nyumbani</button>
+</div>
+</div>
+
+<div id="registerPage" class="page">
+<div class="register">
+<h2>📝 Jisajili</h2>
+<input placeholder="Jina lako">
+<input placeholder="Namba ya simu">
+<button class="btn">Kamilisha Usajili</button>
+<br><br>
+<a class="sw-btn whatsapp" href="https://wa.me/255742795400">📱 Pata Msaada WhatsApp</a>
+</div>
+</div>
+
+<script>
+function hideAll(){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));}
+function goHome(){hideAll();document.getElementById('home').classList.add('active');}
+function showBenefits(){hideAll();document.getElementById('benefitsPage').classList.add('active');}
+function showRegister(){hideAll();document.getElementById('registerPage').classList.add('active');}
+function openChat(name){
+hideAll();
+document.getElementById('chatPage').classList.add('active');
+document.getElementById('chatName').innerText=name;
+document.getElementById('typing').style.display='block';
+document.getElementById('reply').style.display='none';
+document.getElementById('continueBtn').style.display='none';
+setTimeout(function(){
+document.getElementById('typing').style.display='none';
+document.getElementById('reply').style.display='block';
+document.getElementById('continueBtn').style.display='inline-block';
+},2000);
+}
+</script>
+</body>
+</html>
