@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kozena Premium Ultimate</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Arial',sans-serif;background:#020b1a;color:#fff;overflow-x:hidden;}
+
+body::before{
+  content:'';position:fixed;top:0;left:0;width:100%;height:100%;
+  background:radial-gradient(ellipse at 20% 50%,rgba(0,60,120,0.3) 0%,transparent 60%),
+             radial-gradient(ellipse at 80% 20%,rgba(255,215,0,0.08) 0%,transparent 50%),
+             radial-gradient(ellipse at 50% 100%,rgba(0,40,100,0.4) 0%,transparent 60%);
+  pointer-events:none;z-index:0;
+}
+
+/* HEADER */
+.header{
+  background:linear-gradient(160deg,#020b1a,#001840,#020b1a);
+  border-bottom:3px solid #ffd700;
+  padding:22px 20px 18px;
+  text-align:center;
+  position:relative;
+  z-index:10;
+  box-shadow:0 0 60px rgba(255,215,0,0.25),0 4px 20px rgba(0,0,0,0.5);
+  overflow:hidden;
+}
+.header::before{
+  content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(255,215,0,0.12) 0%,transparent 70%);
+  pointer-events:none;
+}
+.header h1{
+  font-size:2.1rem;
+  font-weight:900;
+  font-style:italic;
+  letter-spacing:2px;
+  line-height:1.1;
+  position:relative;
+  display:inline-block;
+  /* 3D layered gold text */
+  color:#ffd700;
+  -webkit-text-fill-color:transparent;
+  background:linear-gradient(180deg,#fffbe0 0%,#ffe066 20%,#ffd700 45%,#ffaa00 65%,#cc7700 85%,#ffdd55 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  /* 3D depth shadow stack */
+  filter:
+    drop-shadow(0 1px 0 #8a5e00)
+    drop-shadow(0 2px 0 #7a5000)
+    drop-shadow(0 3px 0 #6a4000)
+    drop-shadow(0 4px 0 #5a3000)
+    drop-shadow(0 5px 0 #4a2000)
+    drop-shadow(0 6px 8px rgba(0,0,0,0.7))
+    drop-shadow(0 0 20px rgba(255,215,0,0.6));
+  animation:shimmer3d 3s linear infinite;
+  background-size:200% auto;
+}
+.header h1{animation:shimmer3d 2s linear infinite, iceGlow 1.5s ease-in-out infinite alternate;}@keyframes iceGlow{from{filter:drop-shadow(0 0 8px #7fdcff)}to{filter:drop-shadow(0 0 25px #bdf3ff)}}@keyframes shimmer3d{
+  0%{background-position:0% center}
+  100%{background-position:200% center}
+}
+.header .subtitle{
+  color:#a0c4ff;
+  font-size:0.82rem;
+  margin-top:6px;
+  letter-spacing:2px;
+  text-shadow:0 0 10px rgba(100,160,255,0.5);
+  position:relative;
+}
+
+/* TICKER */
+.ticker{background:linear-gradient(90deg,#003322,#00aa55,#003322);border-top:1px solid rgba(255,215,0,0.4);border-bottom:1px solid rgba(255,215,0,0.4);padding:10px 0;overflow:hidden;white-space:nowrap;position:relative;z-index:10;}
+.ticker-inner{display:inline-block;animation:ticker 25s linear infinite;}
+.ticker-inner span{color:#ffd700;font-size:0.85rem;padding:0 30px;}
+.ticker-inner span::before{content:'●';color:#00ff88;margin-right:8px;font-size:0.6rem;}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* HERO */
+.hero{margin:25px 15px;padding:30px 20px;background:linear-gradient(135deg,#001433,#002266);border-radius:20px;text-align:center;position:relative;z-index:5;border:1px solid rgba(255,215,0,0.3);box-shadow:0 0 40px rgba(0,80,200,0.4),0 0 80px rgba(255,215,0,0.1);overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,transparent 0%,rgba(255,215,0,0.05) 10%,transparent 20%);animation:rotate 10s linear infinite;}
+@keyframes rotate{to{transform:rotate(360deg)}}
+.hero .price{font-size:2rem;font-weight:900;background:linear-gradient(135deg,#ffd700,#fff4a3,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative;}
+.hero p{color:#a0c4ff;margin:10px 0 20px;font-size:0.95rem;position:relative;}
+.hero-btn{display:inline-block;background:linear-gradient(135deg,#ffd700,#ffaa00);color:#001433;font-weight:900;padding:14px 35px;border-radius:50px;text-decoration:none;font-size:1rem;position:relative;box-shadow:0 0 25px rgba(255,215,0,0.6);animation:pulse-btn 2s ease-in-out infinite;border:none;cursor:pointer;}
+@keyframes pulse-btn{0%,100%{box-shadow:0 0 25px rgba(255,215,0,0.6)}50%{box-shadow:0 0 50px rgba(255,215,0,0.9),0 0 80px rgba(255,215,0,0.4)}}
+
+/* ONLINE BAR */
+.online-bar{margin:0 15px;padding:12px 20px;background:linear-gradient(90deg,#001433,#002d00,#001433);border-radius:15px;border:1px solid rgba(0,255,100,0.3);display:flex;align-items:center;gap:10px;position:relative;z-index:5;}
+.online-dot{width:10px;height:10px;background:#00ff88;border-radius:50%;animation:blink 1s ease-in-out infinite;flex-shrink:0;}
+@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 8px #00ff88}50%{opacity:0.4}}
+.online-text{color:#00ff88;font-weight:bold;font-size:0.9rem;}
+.online-count{color:#a0c4ff;font-size:0.8rem;margin-left:auto;}
+
+/* SLIDER */
+.slider-section{margin:20px 0;padding:15px 0;position:relative;z-index:5;overflow:hidden;}
+.slider-title{color:#ffd700;font-size:1rem;font-weight:bold;padding:0 15px 12px;letter-spacing:1px;}
+.slider{display:flex;overflow:hidden;}
+.track{display:flex;animation:slide 20s linear infinite;}
+.track img{width:200px;height:140px;border-radius:15px;margin:0 8px;object-fit:cover;border:2px solid rgba(255,215,0,0.3);box-shadow:0 0 20px rgba(0,80,200,0.5);}
+@keyframes slide{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* OFFERS SECTION */
+.offers-section{margin:20px 15px;position:relative;z-index:5;}
+.offers-section h2{color:#ffd700;font-size:1.1rem;margin-bottom:5px;text-align:center;text-shadow:0 0 15px rgba(255,215,0,0.5);letter-spacing:1px;}
+.offers-subtitle{color:#a0c4ff;font-size:0.8rem;text-align:center;margin-bottom:15px;}
+.offer-card{background:linear-gradient(135deg,#0a1a00,#1a3300);border:1px solid rgba(255,215,0,0.4);border-radius:18px;padding:16px 15px;margin-bottom:12px;display:flex;align-items:center;gap:15px;box-shadow:0 0 20px rgba(255,215,0,0.1);position:relative;overflow:hidden;}
+.offer-card::before{content:'HOT';position:absolute;top:8px;right:10px;background:#ff3300;color:#fff;font-size:0.6rem;font-weight:900;padding:2px 7px;border-radius:10px;}
+.offer-icon{font-size:2.2rem;flex-shrink:0;}
+.offer-info h3{color:#ffd700;font-size:0.95rem;font-weight:900;margin-bottom:3px;}
+.offer-info p{color:#a0c4ff;font-size:0.78rem;line-height:1.4;}
+.offer-badge{position:absolute;bottom:8px;right:10px;background:linear-gradient(135deg,#ffd700,#ff9900);color:#001433;font-size:0.65rem;font-weight:900;padding:2px 8px;border-radius:10px;}
+
+/* BENEFITS */
+.benefits{margin:20px 15px;position:relative;z-index:5;}
+.benefits h2{color:#ffd700;font-size:1.1rem;margin-bottom:15px;text-align:center;text-shadow:0 0 15px rgba(255,215,0,0.5);letter-spacing:1px;}
+.benefit-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.benefit-card{background:linear-gradient(135deg,#001433,#002266);border:1px solid rgba(255,215,0,0.2);border-radius:15px;padding:15px 12px;text-align:center;box-shadow:0 0 15px rgba(0,50,150,0.3);cursor:pointer;}
+.benefit-card .icon{font-size:1.8rem;display:block;margin-bottom:8px;}
+.benefit-card h3{color:#ffd700;font-size:0.85rem;margin-bottom:5px;}
+.benefit-card p{color:#a0c4ff;font-size:0.75rem;line-height:1.4;}
+
+/* USERS */
+.users-section{margin:20px 15px;position:relative;z-index:5;}
+.users-section h2{color:#ffd700;font-size:1.1rem;margin-bottom:15px;display:flex;align-items:center;gap:8px;letter-spacing:1px;}
+.user-card{background:linear-gradient(135deg,#001433,#00204d);border:1px solid rgba(255,215,0,0.15);border-radius:18px;margin-bottom:12px;padding:15px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 0 15px rgba(0,50,150,0.2);cursor:pointer;transition:transform 0.2s,border-color 0.2s;}
+.user-card:hover{transform:translateX(5px);border-color:rgba(255,215,0,0.4);}
+.user-info{display:flex;align-items:center;gap:12px;}
+.user-avatar{width:45px;height:45px;border-radius:50%;object-fit:cover;border:2px solid #ffd700;box-shadow:0 0 10px rgba(255,215,0,0.4);}
+.user-name{font-weight:bold;font-size:0.95rem;color:#fff;}
+.user-status{font-size:0.75rem;color:#00ff88;display:flex;align-items:center;gap:5px;}
+.status-dot{width:6px;height:6px;background:#00ff88;border-radius:50%;animation:blink 1s ease-in-out infinite;display:inline-block;}
+.chat-btn{background:linear-gradient(135deg,#ffd700,#ffaa00);color:#001433;font-weight:900;padding:10px 20px;border-radius:50px;text-decoration:none;font-size:0.85rem;border:none;box-shadow:0 0 15px rgba(255,215,0,0.4);cursor:pointer;}
+
+/* CHAT MODAL */
+.chat-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:9999;align-items:flex-end;}
+.chat-modal.active{display:flex;}
+.chat-window{width:100%;background:linear-gradient(180deg,#001433,#002266);border-radius:25px 25px 0 0;border-top:2px solid #ffd700;padding:0;max-height:80vh;display:flex;flex-direction:column;}
+.chat-header{display:flex;align-items:center;gap:12px;padding:15px 20px;border-bottom:1px solid rgba(255,215,0,0.2);position:relative;}
+.chat-header img{width:40px;height:40px;border-radius:50%;border:2px solid #ffd700;}
+.chat-header .info .name{font-weight:bold;color:#fff;}
+.chat-header .info .status{font-size:0.75rem;color:#00ff88;}
+.chat-close{position:absolute;right:15px;top:15px;background:rgba(255,255,255,0.1);border:none;color:#fff;width:30px;height:30px;border-radius:50%;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.chat-body{flex:1;overflow-y:auto;padding:15px;display:flex;flex-direction:column;gap:10px;}
+.msg{max-width:75%;padding:10px 14px;border-radius:18px;font-size:0.9rem;line-height:1.4;}
+.msg.received{background:rgba(255,255,255,0.1);border-bottom-left-radius:4px;align-self:flex-start;}
+.msg.sent{background:linear-gradient(135deg,#1a3a6b,#0a2050);border-bottom-right-radius:4px;align-self:flex-end;}
+.msg-time{font-size:0.65rem;color:rgba(255,255,255,0.4);margin-top:3px;}
+.typing-bubble{display:none;align-self:flex-start;}
+.typing-bubble .dots{background:rgba(255,255,255,0.1);padding:12px 16px;border-radius:18px;border-bottom-left-radius:4px;}
+.typing-bubble .dots span{display:inline-block;width:6px;height:6px;background:#a0c4ff;border-radius:50%;animation:dot-bounce 1.2s ease-in-out infinite;}
+.typing-bubble .dots span:nth-child(2){animation-delay:0.2s;}
+.typing-bubble .dots span:nth-child(3){animation-delay:0.4s;}
+@keyframes dot-bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-8px)}}
+.register-wall{display:none;background:linear-gradient(135deg,#001433,#002266);border-top:2px solid rgba(255,215,0,0.3);padding:25px 20px;text-align:center;}
+.register-wall .lock{font-size:2.5rem;display:block;margin-bottom:10px;}
+.register-wall h3{color:#ffd700;margin-bottom:8px;font-size:1rem;}
+.register-wall p{color:#a0c4ff;font-size:0.85rem;margin-bottom:18px;line-height:1.5;}
+.register-wall .reg-btn{display:block;background:linear-gradient(135deg,#ffd700,#ffaa00);color:#001433;font-weight:900;padding:15px;border-radius:50px;text-decoration:none;font-size:1rem;box-shadow:0 0 25px rgba(255,215,0,0.5);animation:pulse-btn 2s ease-in-out infinite;}
+.chat-input-area{padding:15px;border-top:1px solid rgba(255,255,255,0.1);display:flex;gap:10px;}
+.chat-input{flex:1;background:rgba(255,255,255,0.08);border:1px solid rgba(255,215,0,0.2);border-radius:25px;padding:12px 15px;color:#fff;font-size:0.9rem;outline:none;}
+.chat-send{background:linear-gradient(135deg,#ffd700,#ffaa00);border:none;border-radius:50%;width:42px;height:42px;color:#001433;font-size:1.1rem;cursor:pointer;flex-shrink:0;}
+
+/* WHATSAPP */
+.whatsapp-section{margin:20px 15px;padding:20px;background:linear-gradient(135deg,#001a0a,#003d1a);border:1px solid rgba(37,211,102,0.3);border-radius:20px;text-align:center;position:relative;z-index:5;box-shadow:0 0 25px rgba(37,211,102,0.1);}
+.whatsapp-section h2{color:#25d366;font-size:1rem;margin-bottom:8px;}
+.whatsapp-section p{color:#a0c4ff;font-size:0.85rem;margin-bottom:15px;}
+.wa-btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;font-weight:900;padding:14px 30px;border-radius:50px;text-decoration:none;font-size:1rem;box-shadow:0 0 25px rgba(37,211,102,0.4);animation:pulse-wa 2s ease-in-out infinite;}
+@keyframes pulse-wa{0%,100%{box-shadow:0 0 25px rgba(37,211,102,0.4)}50%{box-shadow:0 0 50px rgba(37,211,102,0.7)}}
+
+/* FLOATING BUTTONS */
+.floating-container{position:fixed;bottom:20px;right:15px;z-index:1000;display:flex;flex-direction:column;gap:12px;align-items:flex-end;}
+.float-row{display:flex;align-items:center;gap:8px;}
+.float-btn{display:flex;align-items:center;gap:8px;padding:14px 20px;border-radius:50px;font-weight:900;font-size:0.9rem;text-decoration:none;animation:float-pulse 3s ease-in-out infinite;cursor:pointer;}
+.float-btn-main{background:linear-gradient(135deg,#ffd700,#ff9500);color:#001433;box-shadow:0 5px 30px rgba(255,215,0,0.5);}
+.float-btn-wa{background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;animation-delay:0.5s;box-shadow:0 5px 30px rgba(37,211,102,0.4);}
+@keyframes float-pulse{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.float-label{background:rgba(0,0,0,0.8);color:#ffd700;padding:5px 12px;border-radius:20px;font-size:0.75rem;white-space:nowrap;}
+
+.footer{padding:20px;text-align:center;color:rgba(255,255,255,0.3);font-size:0.75rem;margin-bottom:100px;position:relative;z-index:5;}
+
+/* Global clickable */
+.clickable{cursor:pointer;}
+</style>
+<style>
+.side-menu{position:fixed;top:0;left:-320px;width:300px;height:100%;background:linear-gradient(180deg,#020e1f,#031a0f);z-index:9999;transition:.35s cubic-bezier(.4,0,.2,1);padding:0;overflow:auto;box-shadow:5px 0 30px rgba(0,0,0,0.8);}
+.side-menu.open{left:0}
+.menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:9998;backdrop-filter:blur(2px);}
+.menu-overlay.show{display:block}
+.menu-btn{position:fixed;top:15px;left:8px;z-index:9997;background:linear-gradient(135deg,#00cc66,#007733);color:#fff;border:none;border-radius:10px;padding:10px 14px;font-size:22px;box-shadow:0 3px 15px rgba(0,200,100,0.4);}
+.menu-header{padding:25px 20px 15px;border-bottom:1px solid rgba(255,215,0,0.25);}
+.menu-header-title{font-size:1.3rem;font-weight:900;font-style:italic;letter-spacing:2px;
+  background:linear-gradient(180deg,#fff8c6,#ffd700,#ffb300,#ff8800);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  text-shadow:none;filter:drop-shadow(0 2px 6px rgba(255,180,0,.7));
+}
+.menu-header-sub{color:#a0c4ff;font-size:0.75rem;margin-top:4px;letter-spacing:1px;}
+.menu-items{padding:15px 15px 30px;}
+.menu-item-btn{
+  display:flex;align-items:center;gap:14px;
+  width:100%;margin-bottom:10px;padding:15px 18px;
+  background:linear-gradient(135deg,#00cc66,#009944,#006622);
+  border:none;border-radius:16px;cursor:pointer;
+  color:#fff;font-size:1rem;font-weight:700;text-align:left;
+  box-shadow:0 4px 15px rgba(0,180,80,0.35),inset 0 1px 0 rgba(255,255,255,0.15);
+  transition:transform .15s,box-shadow .15s;
+  position:relative;overflow:hidden;
+}
+.menu-item-btn::before{content:'';position:absolute;top:0;left:0;right:0;height:40%;background:rgba(255,255,255,0.08);border-radius:16px 16px 50% 50%;}
+.menu-item-btn:active{transform:scale(0.97);}
+.menu-item-btn .m-icon{font-size:1.3rem;flex-shrink:0;}
+.menu-item-btn.locked{background:linear-gradient(135deg,#3a6644,#1e4a30);opacity:0.7;}
+.menu-item-btn.locked::after{content:'🔒';margin-left:auto;font-size:0.85rem;}
+.menu-close-btn{display:block;margin:0 15px 15px;width:calc(100% - 30px);padding:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;color:rgba(255,255,255,0.5);font-size:0.85rem;cursor:pointer;}
+</style></head>
+<body>
+<button class='menu-btn' onclick='openMenu()'>☰</button>
+<div class='menu-overlay' id='menuOverlay' onclick='closeMenu()'></div>
+<div class='side-menu' id='sideMenu'>
+  <div class="menu-header">
+    <div class="menu-header-title">⚡ KOZENA MENU</div>
+    <div class="menu-header-sub">Kurasa hizi zinaonekana kama pages halisi.</div>
+  </div>
+  <div class="menu-items">
+    <button class="menu-item-btn" onclick="closeMenu();goRegister()"><span class="m-icon">💬</span> Daily Chats</button>
+    <button class="menu-item-btn" onclick="closeMenu();goRegister()"><span class="m-icon">🎁</span> Bonus za Leo</button>
+    <button class="menu-item-btn" onclick="closeMenu();goRegister()"><span class="m-icon">💵</span> Toa Pesa</button>
+    <button class="menu-item-btn" onclick="closeMenu();goRegister()"><span class="m-icon">👥</span> Referral Bonus</button>
+    <button class="menu-item-btn" onclick="closeMenu();goRegister()"><span class="m-icon">🏆</span> Washindi wa Leo</button>
+    <button class="menu-item-btn locked"><span class="m-icon">📈</span> Forex</button>
+    <button class="menu-item-btn locked"><span class="m-icon">✈️</span> Aviator</button>
+    <!-- BANDO BUTTON -->
+    <button class="menu-item-btn" onclick="closeMenu();goRegister()" style="background:linear-gradient(135deg,#0066ff,#0033aa,#001f77);box-shadow:0 4px 15px rgba(0,100,255,0.4),inset 0 1px 0 rgba(255,255,255,0.15);margin-top:6px;border:1px solid rgba(100,180,255,0.3);animation:bando-pulse 2s ease-in-out infinite;">
+      <span class="m-icon">📶</span>
+      <div style="display:flex;flex-direction:column;gap:1px;">
+        <span style="font-size:1rem;font-weight:900;">Ongeza Bando ya Bure!!</span>
+        <span style="font-size:0.7rem;font-weight:400;color:rgba(255,255,255,0.75);">Pata GB 30 BILA MALIPO</span>
+      </div>
+      <span style="margin-left:auto;background:#ff3300;color:#fff;font-size:0.6rem;font-weight:900;padding:2px 7px;border-radius:8px;flex-shrink:0;">BURE</span>
+    </button>
+  </div>
+  <button class="menu-close-btn" onclick="closeMenu()">✕ Funga Menyu</button>
+</div>
+<style>
+@keyframes bando-pulse{0%,100%{box-shadow:0 4px 15px rgba(0,100,255,0.4)}50%{box-shadow:0 4px 25px rgba(0,150,255,0.7)}}
+/* BALANCE & WITHDRAW BUTTONS */
+.topbar-right{position:fixed;top:10px;right:8px;z-index:9997;display:flex;flex-direction:column;gap:5px;align-items:flex-end;}
+.balance-badge{
+  display:flex;align-items:center;gap:6px;
+  background:linear-gradient(135deg,#001433,#002266);
+  border:1px solid rgba(255,215,0,0.5);
+  border-radius:20px;padding:6px 12px;
+  box-shadow:0 0 12px rgba(255,215,0,0.2);
+}
+.balance-badge .bal-icon{font-size:0.85rem;}
+.balance-badge .bal-label{color:rgba(160,196,255,0.7);font-size:0.6rem;font-weight:600;letter-spacing:0.5px;line-height:1;}
+.balance-badge .bal-amount{color:#ffd700;font-size:0.82rem;font-weight:900;line-height:1;}
+.withdraw-btn{
+  display:flex;align-items:center;gap:5px;
+  background:linear-gradient(135deg,#ffd700,#ff9900);
+  color:#001433;font-weight:900;font-size:0.75rem;
+  border:none;border-radius:20px;padding:7px 14px;
+  cursor:pointer;
+  box-shadow:0 0 12px rgba(255,180,0,0.5);
+  animation:wd-pulse 2s ease-in-out infinite;
+}
+@keyframes wd-pulse{0%,100%{box-shadow:0 0 12px rgba(255,180,0,0.5)}50%{box-shadow:0 0 22px rgba(255,180,0,0.8)}}
+</style>
+
+<!-- BALANCE & WITHDRAW TOP RIGHT -->
+<div class="topbar-right">
+  <div class="balance-badge">
+    <span class="bal-icon">💰</span>
+    <div>
+      <div class="bal-label">BALANCE</div>
+      <div class="bal-amount">TSh 5,000</div>
+    </div>
+  </div>
+  <button class="withdraw-btn" onclick="goRegister()">
+    💵 Withdraw
+  </button>
+</div>
+
+<script>function openMenu(){document.getElementById('sideMenu').classList.add('open');document.getElementById('menuOverlay').classList.add('show')}function closeMenu(){document.getElementById('sideMenu').classList.remove('open');document.getElementById('menuOverlay').classList.remove('show')}</script>
+
+<!-- HEADER -->
+<div class="header">
+  <h1>KOZENA<br>PREMIUM</h1>
+  <div class="subtitle">✦ &nbsp;💬 JISAJILI · ZUNGUMZA · PATA PESA &nbsp;✦</div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>Asha ametoa TSh 85,000</span>
+    <span>John amepokea TSh 42,000</span>
+    <span>Watu 1,248 wako online SASA HIVI</span>
+    <span>Mary amepata Bonus ya GB30 leo</span>
+    <span>Peter amepokea TSh 67,500</span>
+    <span>Jiandikishe BURE — Pata Bonus ya TSh 5,000</span>
+    <span>Asha ametoa TSh 85,000</span>
+    <span>John amepokea TSh 42,000</span>
+    <span>Watu 1,248 wako online SASA HIVI</span>
+    <span>Mary amepata Bonus ya GB30 leo</span>
+    <span>Peter amepokea TSh 67,500</span>
+    <span>Jiandikishe BURE — Pata Bonus ya TSh 5,000</span>
+  </div>
+</div>
+
+<!-- ONLINE BAR -->
+<div class="online-bar" style="margin-top:15px;">
+  <div class="online-dot"></div>
+  <span class="online-text">Watu Online Sasa Hivi</span>
+  <span class="online-count" id="onlineCount">1,248 wako online</span>
+</div>
+
+
+<!-- KUHUSU KOZENA — Swipeable Cards -->
+<style>
+.about-wrapper{margin:20px 15px 0;}
+.about-label{color:#ffd700;font-size:0.8rem;font-weight:700;letter-spacing:1px;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.about-scroll{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:12px;padding-bottom:10px;scrollbar-width:none;}
+.about-scroll::-webkit-scrollbar{display:none;}
+.about-card{
+  flex:0 0 82vw;max-width:310px;
+  scroll-snap-align:start;
+  background:linear-gradient(135deg,#001433,#002266);
+  border:1px solid rgba(255,215,0,0.35);
+  border-radius:18px;
+  padding:20px 18px;
+  box-shadow:0 0 20px rgba(0,50,150,0.3);
+  position:relative;
+  overflow:hidden;
+}
+.about-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#ffd700,#ffaa00,#ffd700);}
+.about-card-icon{font-size:1.6rem;margin-bottom:8px;}
+.about-card-title{color:#ffd700;font-size:0.92rem;font-weight:900;letter-spacing:0.5px;margin-bottom:10px;}
+.about-card-body{color:#a0c4ff;font-size:0.82rem;line-height:1.75;}
+.about-card-body b{color:#fff;}
+.about-dots{display:flex;justify-content:center;gap:6px;margin-top:10px;}
+.about-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,215,0,0.25);transition:background .3s;}
+.about-dot.active{background:#ffd700;}
+.swipe-hint{color:rgba(160,196,255,0.5);font-size:0.72rem;text-align:right;margin-top:5px;}
+</style>
+
+<div class="about-wrapper">
+  <div class="about-label">🛡️ KUHUSU KOZENA</div>
+  <div class="about-scroll" id="aboutScroll">
+
+    <!-- Card 1: Utangulizi -->
+    <div class="about-card">
+      <div class="about-card-icon">🌍</div>
+      <div class="about-card-title">Sisi ni Nani?</div>
+      <div class="about-card-body">
+        <b>KOZENA</b> ni kampuni iliyosajiliwa rasmi inayowaunganisha Watanzania na watu kutoka nchi mbalimbali duniani kupitia mazungumzo ya mtandaoni.<br><br>
+        Wageni wengi hutumia huduma zetu kujifunza Kiswahili, kufahamu utamaduni wa Tanzania na kupata marafiki wapya.
+      </div>
+    </div>
+
+    <!-- Card 2: Huduma -->
+    <div class="about-card">
+      <div class="about-card-icon">💬</div>
+      <div class="about-card-title">Tunafanya Nini?</div>
+      <div class="about-card-body">
+        Wanachama wa KOZENA hupata fursa ya kuchati na wageni, kuwasaidia kujifunza <b>Kiswahili</b> na kushiriki mazungumzo ya kirafiki.<br><br>
+        Mfumo wetu hurahisisha mawasiliano kwa kutumia <b>teknolojia ya tafsiri</b>, hivyo unaweza kutumia Kiswahili kwa urahisi kamili.
+      </div>
+    </div>
+
+    <!-- Card 3: Usalama & Usajili -->
+    <div class="about-card">
+      <div class="about-card-icon">📋</div>
+      <div class="about-card-title">Usalama &amp; Uhalali</div>
+      <div class="about-card-body">
+        🔒 Usalama wa watumiaji, faragha ya taarifa na uwazi wa huduma ni kipaumbele chetu.<br><br>
+        <span style="color:#ffd700;">📋</span> Jina la Biashara: <b>KOZENA</b><br>
+        <span style="color:#ffd700;">📌</span> Namba ya Usajili: <b style="color:#ffd700;">701204</b><br>
+        <span style="color:#ffd700;">🛡️</span> Hali: <b>Iliyosajiliwa Rasmi</b><br>
+        <span style="color:#ffd700;">📞</span> Huduma kwa Wateja: <b>+255 XXX XXX XXX</b>
+      </div>
+    </div>
+
+  </div>
+  <div class="about-dots">
+    <div class="about-dot active" id="dot0"></div>
+    <div class="about-dot" id="dot1"></div>
+    <div class="about-dot" id="dot2"></div>
+  </div>
+  <div class="swipe-hint">Sogeza kushoto kusoma zaidi →</div>
+</div>
+
+<script>
+(function(){
+  const scroll = document.getElementById('aboutScroll');
+  const dots = [document.getElementById('dot0'),document.getElementById('dot1'),document.getElementById('dot2')];
+  if(!scroll) return;
+  scroll.addEventListener('scroll',function(){
+    const idx = Math.round(scroll.scrollLeft / scroll.offsetWidth);
+    dots.forEach((d,i)=>d.classList.toggle('active', i===idx));
+  },{passive:true});
+})();
+</script>
+
+<!-- HERO CARD -->
+<div class="hero clickable" onclick="goRegister()">
+  <div class="price">TSh 20,769 – 93,462</div>
+  <p>Zungumza na watu wa mataifa mbalimbali na pata pesa kila siku ukiwa nyumbani!</p>
+  <span class="hero-btn">🚀 JISAJILI SASA UPATE BONUS HADI 30000 LEO</span>
+</div>
+
+<!-- IMAGE SLIDER -->
+<div class="slider-section">
+  <div class="slider-title">📸 Wanachama Wetu</div>
+  <div class="slider">
+    <div class="track">
+      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=300&fit=crop" alt="m">
+      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=300&fit=crop" alt="m">
+      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=300&fit=crop" alt="m">
+      <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=300&fit=crop" alt="m">
+      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&h=300&fit=crop" alt="m">
+      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=300&fit=crop" alt="m">
+      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=300&fit=crop" alt="m">
+      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=300&fit=crop" alt="m">
+      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=300&fit=crop" alt="m">
+      <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=300&fit=crop" alt="m">
+      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&h=300&fit=crop" alt="m">
+      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=300&fit=crop" alt="m">
+    </div>
+  </div>
+</div>
+
+<!-- BENEFITS -->
+<div class="benefits">
+  <h2>✦ FAIDA ZA KOZENA PREMIUM ✦</h2>
+  <div class="benefit-grid">
+    <div class="benefit-card" onclick="goRegister()">
+      <span class="icon">💰</span>
+      <h3>Pata Pesa</h3>
+      <p>Zungumza na kupata TSh 20K–93K kila siku</p>
+    </div>
+    <div class="benefit-card" onclick="goRegister()">
+      <span class="icon">🌍</span>
+      <h3>Watu Duniani</h3>
+      <p>Karibu na watu wa mataifa 50+ ulimwenguni</p>
+    </div>
+    <div class="benefit-card" onclick="goRegister()">
+      <span class="icon">🔒</span>
+      <h3>Usalama</h3>
+      <p>Mazungumzo yako yanalindwa 100%</p>
+    </div>
+    <div class="benefit-card" onclick="goRegister()">
+      <span class="icon">⚡</span>
+      <h3>Haraka</h3>
+      <p>Jiandikishe kwa dakika 2 tu na anza mara moja</p>
+    </div>
+    <div class="benefit-card" onclick="goRegister()">
+      <span class="icon">🎁</span>
+      <h3>Bonasi</h3>
+      <p>Bonasi ya TSh 5,000 kwa kila rafiki unaomwalika</p>
+    </div>
+    <div class="benefit-card" onclick="goRegister()">
+      <span class="icon">📱</span>
+      <h3>Simu Yoyote</h3>
+      <p>Inafanya kazi kwenye simu yoyote Android/iPhone</p>
+    </div>
+  </div>
+</div>
+
+<!-- USERS ONLINE -->
+<style>
+.earn-badge{
+  display:inline-flex;align-items:center;gap:4px;
+  background:linear-gradient(135deg,#1a5c00,#2d9900);
+  border:1px solid rgba(100,255,100,0.35);
+  color:#fff;font-size:0.72rem;font-weight:900;
+  padding:4px 10px;border-radius:20px;
+  box-shadow:0 2px 8px rgba(0,180,0,0.3);
+  white-space:nowrap;flex-shrink:0;
+}
+.earn-badge span{color:#a8ffb0;font-size:0.65rem;font-weight:600;}
+</style>
+<div class="users-section">
+  <h2>🌍 Watumiaji Wapo Mtandaoni</h2>
+
+  <div class="user-card" onclick="openChat('Susan','https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face','10')">
+    <div class="user-info">
+      <img class="user-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face" alt="Susan">
+      <div>
+        <div class="user-name">Susan J.</div>
+        <div class="user-status"><span class="status-dot"></span>Active Now · 🇬🇧 UK</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
+      <div class="earn-badge">💵 $10 <span>/chat</span></div>
+      <button class="chat-btn">💬 Chat</button>
+    </div>
+  </div>
+
+  <div class="user-card" onclick="openChat('James','https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face','20')">
+    <div class="user-info">
+      <img class="user-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face" alt="James">
+      <div>
+        <div class="user-name">James M.</div>
+        <div class="user-status"><span class="status-dot"></span>Active Now · 🇺🇸 USA</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
+      <div class="earn-badge">💵 $20 <span>/chat</span></div>
+      <button class="chat-btn">💬 Chat</button>
+    </div>
+  </div>
+
+  <div class="user-card" onclick="openChat('Linda','https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=100&h=100&fit=crop&crop=face','7')">
+    <div class="user-info">
+      <img class="user-avatar" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=100&h=100&fit=crop&crop=face" alt="Linda">
+      <div>
+        <div class="user-name">Linda K.</div>
+        <div class="user-status"><span class="status-dot"></span>Active Now · 🇩🇪 Germany</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
+      <div class="earn-badge">💵 $7 <span>/chat</span></div>
+      <button class="chat-btn">💬 Chat</button>
+    </div>
+  </div>
+
+  <div class="user-card" onclick="openChat('Frank','https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=face','15')">
+    <div class="user-info">
+      <img class="user-avatar" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=face" alt="Frank">
+      <div>
+        <div class="user-name">Frank G.</div>
+        <div class="user-status"><span class="status-dot"></span>Active Now · 🇨🇦 Canada</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
+      <div class="earn-badge">💵 $15 <span>/chat</span></div>
+      <button class="chat-btn">💬 Chat</button>
+    </div>
+  </div>
+
+  <div class="user-card" onclick="openChat('Emma','https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop&crop=face','25')">
+    <div class="user-info">
+      <img class="user-avatar" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop&crop=face" alt="Emma">
+      <div>
+        <div class="user-name">Emma L.</div>
+        <div class="user-status"><span class="status-dot"></span>Active Now · 🇦🇺 Australia</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
+      <div class="earn-badge">💵 $25 <span>/chat</span></div>
+      <button class="chat-btn">💬 Chat</button>
+    </div>
+  </div>
+
+  <div class="user-card" onclick="openChat('Sophia','https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=100&h=100&fit=crop&crop=face','12')">
+    <div class="user-info">
+      <img class="user-avatar" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=100&h=100&fit=crop&crop=face" alt="Sophia">
+      <div>
+        <div class="user-name">Sophia R.</div>
+        <div class="user-status"><span class="status-dot"></span>Active Now · 🇫🇷 France</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
+      <div class="earn-badge">💵 $12 <span>/chat</span></div>
+      <button class="chat-btn">💬 Chat</button>
+    </div>
+  </div>
+
+  <div class="user-card" onclick="openChat('James','https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face','8')">
+    <div class="user-info">
+      <img class="user-avatar" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Daniel">
+      <div>
+        <div class="user-name">Daniel W.</div>
+        <div class="user-status"><span class="status-dot"></span>Active Now · 🇳🇱 Netherlands</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
+      <div class="earn-badge">💵 $8 <span>/chat</span></div>
+      <button class="chat-btn">💬 Chat</button>
+    </div>
+  </div>
+
+  <div class="user-card" onclick="openChat('Susan','https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face','18')">
+    <div class="user-info">
+      <img class="user-avatar" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" alt="Olivia">
+      <div>
+        <div class="user-name">Olivia T.</div>
+        <div class="user-status"><span class="status-dot"></span>Active Now · 🇸🇪 Sweden</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
+      <div class="earn-badge">💵 $18 <span>/chat</span></div>
+      <button class="chat-btn">💬 Chat</button>
+    </div>
+  </div>
+
+  <div class="user-card" onclick="openChat('Frank','https://images.unsplash.com/photo-1463453091185-61582044d556?w=100&h=100&fit=crop&crop=face','30')">
+    <div class="user-info">
+      <img class="user-avatar" src="https://images.unsplash.com/photo-1463453091185-61582044d556?w=100&h=100&fit=crop&crop=face" alt="Michael">
+      <div>
+        <div class="user-name">Michael B.</div>
+        <div class="user-status"><span class="status-dot"></span>Active Now · 🇺🇸 USA</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
+      <div class="earn-badge">💵 $30 <span>/chat</span></div>
+      <button class="chat-btn">💬 Chat</button>
+    </div>
+  </div>
+
+  <div class="user-card" onclick="openChat('Linda','https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face','5')">
+    <div class="user-info">
+      <img class="user-avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face" alt="Isabella">
+      <div>
+        <div class="user-name">Isabella C.</div>
+        <div class="user-status"><span class="status-dot"></span>Active Now · 🇮🇹 Italy</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
+      <div class="earn-badge">💵 $5 <span>/chat</span></div>
+      <button class="chat-btn">💬 Chat</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- FAQ SECTION -->
+<style>
+.faq-section{margin:25px 15px;position:relative;z-index:5;}
+.faq-section h2{color:#ffd700;font-size:1.15rem;font-weight:900;margin-bottom:4px;letter-spacing:0.5px;}
+.faq-section .faq-sub{color:#a0c4ff;font-size:0.82rem;margin-bottom:18px;line-height:1.5;}
+.faq-item{border-bottom:1px solid rgba(255,215,0,0.15);overflow:hidden;}
+.faq-item:first-of-type{border-top:1px solid rgba(255,215,0,0.15);}
+.faq-q{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:16px 4px;cursor:pointer;
+  color:#fff;font-size:0.92rem;font-weight:600;
+  gap:12px;
+  -webkit-tap-highlight-color:transparent;
+}
+.faq-q:hover{color:#ffd700;}
+.faq-chevron{
+  color:#ffd700;font-size:1.1rem;flex-shrink:0;
+  transition:transform .3s ease;display:inline-block;
+}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height .35s ease, padding .3s ease;
+  color:#a0c4ff;font-size:0.85rem;line-height:1.75;
+  padding:0 4px;
+}
+.faq-item.open .faq-a{max-height:300px;padding:0 4px 16px;}
+.faq-item.open .faq-chevron{transform:rotate(180deg);}
+.faq-item.open .faq-q{color:#ffd700;}
+</style>
+
+<div class="faq-section">
+  <h2>❓ Maswali ya Kawaida</h2>
+  <p class="faq-sub">Kila unachohitaji kujua kabla ya kuanza kuchati na kupata pesa kwenye KOZENA.</p>
+
+  <div class="faq-item open">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      Ninaweza kupata kiasi gani kwa siku?
+      <span class="faq-chevron">▾</span>
+    </div>
+    <div class="faq-a">Wanachama wanaofanya kazi kwa bidii hupata kati ya <strong style="color:#ffd700;">TSh 20,769 hadi TSh 93,462</strong> kwa siku. Kadri unavyozungumza zaidi, ndivyo unavyopata zaidi. Wachati bora hupata hata zaidi.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      Je, KOZENA ni halali na salama?
+      <span class="faq-chevron">▾</span>
+    </div>
+    <div class="faq-a">Ndiyo kabisa. KOZENA ni kampuni iliyosajiliwa rasmi Tanzania, Namba ya Usajili: <strong style="color:#ffd700;">701204</strong>. Taarifa zako zinalindwa na mfumo wa usalama wa hali ya juu. Malipo yanafanywa kwa uwazi na hakuna udanganyifu.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      Je, ninahitaji uzoefu wa kuchati?
+      <span class="faq-chevron">▾</span>
+    </div>
+    <div class="faq-a">Hapana! Huhitaji uzoefu wowote. Unahitaji tu kujua Kiswahili na kuwa tayari kuzungumza kwa uchangamfu. Wageni wetu wanatafuta mazungumzo ya kawaida ya kirafiki — rahisi sana!</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      Ninawezaje kutoa pesa zangu?
+      <span class="faq-chevron">▾</span>
+    </div>
+    <div class="faq-a">Malipo yanafanywa haraka kupitia <strong style="color:#fff;">M-Pesa, Airtel Money</strong> au akaunti ya benki. Omba kutoa pesa yoyote wakati wowote unapotaka — hakuna kikwazo cha wakati.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      Je, ninaweza kufanya kazi nyumbani?
+      <span class="faq-chevron">▾</span>
+    </div>
+    <div class="faq-a">Ndiyo! KOZENA inafanya kazi <strong style="color:#fff;">popote ulipo</strong> — nyumbani, kazini, au safarini. Unahitaji tu simu yenye intaneti. Fanya kazi wakati wowote unaopendelea, asubuhi au usiku.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      Usajili unachukua muda gani?
+      <span class="faq-chevron">▾</span>
+    </div>
+    <div class="faq-a">Usajili ni wa <strong style="color:#ffd700;">bure kabisa</strong> na unachukua dakika 2 tu. Jaza jina, namba ya simu na nenosiri — kisha uanze mara moja. Pia unapata <strong style="color:#ffd700;">Bonus ya TSh 5,000</strong> mara baada ya kujisajili!</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      Lazima nijue Kiingereza?
+      <span class="faq-chevron">▾</span>
+    </div>
+    <div class="faq-a">Si lazima! Mfumo wetu una <strong style="color:#fff;">teknolojia ya tafsiri ya moja kwa moja</strong>. Unaweza kuandika kwa Kiswahili na wageni wataona ujumbe kwa lugha yao. Rahisi na ya kufurahisha!</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      Ninaweza kualika marafiki zangu?
+      <span class="faq-chevron">▾</span>
+    </div>
+    <div class="faq-a">Ndiyo na inakulipa! Kwa kila rafiki unayemwalika na kujisajili, unapata <strong style="color:#ffd700;">Bonus ya TSh 5,000</strong> mara moja kwenye akaunti yako. Waalike wengi — pata zaidi!</div>
+  </div>
+
+</div>
+
+<script>
+function toggleFaq(el){
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if(!isOpen) item.classList.add('open');
+}
+</script>
+
+<!-- ===== FAHAMU ZAIDI / OFFERS ===== -->
+<div class="offers-section">
+  <h2>🔥 FAHAMU ZAIDI — OFFA ZA LEO</h2>
+  <p class="offers-subtitle">Jiandikishe SASA upate faida hizi zote BURE</p>
+
+  <div class="offer-card clickable" onclick="goRegister()">
+    <div class="offer-icon">📶</div>
+    <div class="offer-info">
+      <h3>BONUS YA BANDO — GB 30 ZA MWEZI BURE</h3>
+      <p>Kila mwanachama mpya anapata GB 30 za intaneti bila malipo kwa mwezi mzima</p>
+    </div>
+    <div class="offer-badge">BURE</div>
+  </div>
+
+  <div class="offer-card clickable" onclick="goRegister()">
+    <div class="offer-icon">✈️</div>
+    <div class="offer-info">
+      <h3>FREE AVIATOR PREDICTOR</h3>
+      <p>Pata zana ya kujuza mchezo wa Aviator bila malipo — inayotabiri kwa usahihi wa 95%</p>
+    </div>
+    <div class="offer-badge">HOT 🔥</div>
+  </div>
+
+  <div class="offer-card clickable" onclick="goRegister()">
+    <div class="offer-icon">🤖</div>
+    <div class="offer-info">
+      <h3>FREE AI TRAINING</h3>
+      <p>Mafunzo ya AI ya kipekee yanayokufundisha jinsi ya kupata pesa zaidi mtandaoni haraka</p>
+    </div>
+    <div class="offer-badge">NEW</div>
+  </div>
+
+  <div class="offer-card clickable" onclick="goRegister()" style="border-color:rgba(255,215,0,0.6);background:linear-gradient(135deg,#1a1000,#2d1f00);">
+    <div class="offer-icon">💰</div>
+    <div class="offer-info">
+      <h3>BONUS YA TSh 5,000 MARA MOJA</h3>
+      <p>Jiandikishe tu na upate TSh 5,000 kwenye akaunti yako mara moja — hakuna masharti!</p>
+    </div>
+    <div class="offer-badge" style="background:linear-gradient(135deg,#ff9900,#ff3300);">HARAKA</div>
+  </div>
+</div>
+
+
+<!-- WHATSAPP -->
+<div class="whatsapp-section">
+  <h2>📲 Jiunge Kwenye Kikundi Chetu cha WhatsApp</h2>
+  <p>Pata habari za mapato na bonasi mpya kwenye kikundi chetu cha WhatsApp</p>
+  <a href="https://whatsapp.com/channel/0029VbCPuRPCcW4khP0gKn09" class="wa-btn">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Jiunge WhatsApp
+  </a>
+</div>
+
+<div class="footer">
+  © 2024 Kozena Premium · Haki Zote Zimehifadhiwa<br>
+  <span style="color:rgba(255,215,0,0.4);">Mguso wowote → Usajili wa bure</span>
+</div>
+
+<!-- FLOATING BUTTONS -->
+<div class="floating-container">
+  <div class="float-row">
+    <span class="float-label">Jiunge WhatsApp</span>
+    <a href="https://whatsapp.com/channel/0029VbCPuRPCcW4khP0gKn09" class="float-btn float-btn-wa">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+  </div>
+  <div class="float-row">
+    <span class="float-label">🔥 Jisajili Sasa</span>
+    <a href="https://kozenasite.com/register?ref=ASAKEY" class="float-btn float-btn-main">🚀</a>
+  </div>
+</div>
+
+<!-- CHAT MODAL -->
+<style>
+.chat-earn-bar{
+  display:none;
+  align-items:center;justify-content:space-between;
+  background:linear-gradient(135deg,#001a0a,#003311);
+  border-top:2px solid rgba(0,255,100,0.35);
+  border-bottom:1px solid rgba(0,255,100,0.15);
+  padding:12px 15px;gap:10px;
+}
+.chat-earn-bar.visible{display:flex;animation:earn-slide-in .4s ease;}
+@keyframes earn-slide-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.earn-info{display:flex;align-items:center;gap:8px;}
+.earn-amount{color:#00ff88;font-size:1.05rem;font-weight:900;}
+.earn-label{color:rgba(160,196,255,0.8);font-size:0.72rem;line-height:1.3;}
+.chat-withdraw-btn{
+  background:linear-gradient(135deg,#ffd700,#ff9900);
+  color:#001433;font-weight:900;font-size:0.82rem;
+  border:none;border-radius:25px;padding:10px 18px;
+  cursor:pointer;white-space:nowrap;flex-shrink:0;
+  box-shadow:0 0 15px rgba(255,180,0,0.6);
+  animation:wd-glow 1.5s ease-in-out infinite;
+}
+@keyframes wd-glow{0%,100%{box-shadow:0 0 15px rgba(255,180,0,0.6)}50%{box-shadow:0 0 28px rgba(255,180,0,0.9),0 0 50px rgba(255,180,0,0.3)}}
+</style>
+<div class="chat-modal" id="chatModal">
+  <div class="chat-window">
+    <div class="chat-header">
+      <img id="chatAvatar" src="" alt="">
+      <div class="info">
+        <div class="name" id="chatName"></div>
+        <div class="status"><span class="status-dot"></span> Active Now</div>
+      </div>
+      <button class="chat-close" onclick="closeChat()">✕</button>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <!-- messages injected here -->
+    </div>
+    <!-- EARN/WITHDRAW BAR — inaonekana baada ya mazungumzo -->
+    <div class="chat-earn-bar" id="chatEarnBar">
+      <div class="earn-info">
+        <span style="font-size:1.3rem;">💰</span>
+        <div>
+          <div class="earn-amount" id="earnAmount">💰 Mategemeo kulipwa mwishoni mwa chati hii</div>
+          <div class="earn-label">Inategemea kupata TSh 25,000</div>
+        </div>
+      </div>
+      <button class="chat-withdraw-btn" onclick="goRegister()">⏳ WAITING...</button>
+    </div>
+    <div id="registerWall" class="register-wall" style="display:none;">
+      <span class="lock">🔐</span>
+      <h3>Endelea na Mazungumzo!</h3>
+      <p>Jiandikishe BURE ili uendelee kuzungumza na <span id="regName"></span> na watu wengine 1,200+ wanaokungoja!</p>
+      <a href="https://kozenasite.com/register?ref=ASAKEY" class="reg-btn">🚀 JISAJILI SASA UPATE BONUS HADI 30000 LEO</a>
+    </div>
+    <div class="chat-input-area" id="chatInputArea">
+      <input class="chat-input" id="chatInput" placeholder="Andika ujumbe..." readonly onclick="goRegister()">
+      <button class="chat-send" onclick="goRegister()">➤</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const REG = 'https://kozenasite.com/register?ref=ASAKEY';
+
+function goRegister(){ window.location.href = REG; }
+
+// Online count animation
+let count = 1248;
+setInterval(()=>{
+  count += Math.floor(Math.random()*3)-1;
+  if(count<1200)count=1200;
+  if(count>1350)count=1350;
+  document.getElementById('onlineCount').textContent = count.toLocaleString()+' wako online';
+},5000);
+
+// Chat system
+
+const chatScripts = {
+  Susan:[
+    {from:'received',text:'Hello 👋 Habari yako?',delay:500},
+    {from:'received',text:'My name is Susan 😊',delay:2500},
+    {from:'received',text:'I live in London, UK 🇬🇧',delay:4500},
+    {from:'received',text:'What is your name?',delay:6500},
+    {from:'received',text:'Are you there?',delay:8500},
+    {from:'received',text:'Why are you not replying? ❤️',delay:10500}
+  ],
+  James:[
+    {from:'received',text:'Hello friend 👋',delay:500},
+    {from:'received',text:'I am James from Manchester UK 🇬🇧',delay:2500},
+    {from:'received',text:'How are you today?',delay:4500},
+    {from:'received',text:'What is your name?',delay:6500},
+    {from:'received',text:'Are you there?',delay:8500}
+  ],
+  Linda:[
+    {from:'received',text:'Hi 😊',delay:500},
+    {from:'received',text:'I am Linda.',delay:2500},
+    {from:'received',text:'Nice to meet you.',delay:4500},
+    {from:'received',text:'Where are you from?',delay:6500},
+    {from:'received',text:'Please reply ❤️',delay:8500}
+  ],
+  Frank:[
+    {from:'received',text:'Hello 👋',delay:500},
+    {from:'received',text:'My name is Frank.',delay:2500},
+    {from:'received',text:'Can we be friends?',delay:4500},
+    {from:'received',text:'What is your name?',delay:6500},
+    {from:'received',text:'Why are you quiet? 😊',delay:8500}
+  ]
+};
+
+const messagePools = {
+  female:[
+    ['Hello 👋','How are you? 😊','My name is Emma.','I live in London 🇬🇧','What is your name?','Are you there?','Why are you not replying? ❤️'],
+    ['Hi 😊','Nice to meet you.','I am Sophia.','Where are you from?','Can we be friends?','Please reply 😍'],
+    ['Hello friend 👋','I am Olivia.','How is your day?','I would like to know you better.','What is your name?']
+  ],
+  male:[
+    ['Hello bro 👋','My name is James.','I am from Manchester 🇬🇧','How are you today?','What is your name?','Are you there?'],
+    ['Hi 👋','I am Frank.','Nice meeting you.','Where are you from?','Let us be friends.'],
+    ['Hello friend 😊','I am Daniel.','I live in Birmingham 🇬🇧','Why are you quiet?','Please reply.']
+  ]
+};
+
+function buildRandomChat(name){
+ const femaleNames=['Susan','Emma','Sophia','Linda','Olivia'];
+ const pool=femaleNames.includes(name)?messagePools.female:messagePools.male;
+ const chosen=pool[Math.floor(Math.random()*pool.length)];
+ return chosen.map((t,i)=>({from:'received',text:t,delay:500+(i*2200)}));
+}
+
+let currentName
+ = '';
+
+
+const randomProfiles = [
+ {name:'Susan',avatar:'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face',dollars:'10'},
+ {name:'Emma',avatar:'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop&crop=face',dollars:'25'},
+ {name:'Sophia',avatar:'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=100&h=100&fit=crop&crop=face',dollars:'12'},
+ {name:'Linda',avatar:'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=100&h=100&fit=crop&crop=face',dollars:'7'},
+ {name:'James',avatar:'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face',dollars:'20'},
+ {name:'Frank',avatar:'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=face',dollars:'15'}
+];
+
+window.addEventListener('load',()=>{
+  randomTicker();
+});
+
+function openChat(name, avatar, dollars){
+  currentName = name;
+  const earnDollars = dollars || '10';
+  document.getElementById('chatModal').classList.add('active');
+  document.getElementById('chatName').textContent = name;
+  document.getElementById('chatAvatar').src = avatar;
+  document.getElementById('regName').textContent = name;
+  document.getElementById('chatBody').innerHTML = '';
+  document.getElementById('registerWall').style.display = 'none';
+  document.getElementById('chatInputArea').style.display = 'flex';
+  document.getElementById('chatEarnBar').classList.remove('visible');
+  document.getElementById('earnAmount').textContent = '+$' + earnDollars + ' earned!';
+
+  const body = document.getElementById('chatBody');
+  const script = buildRandomChat(name);
+
+  script.forEach((msg, i)=>{
+    setTimeout(()=>{
+      // Show typing indicator before received messages
+      if(msg.from === 'received'){
+        const typing = document.getElementById('typingBubble');
+        if(typing) typing.style.display='flex';
+      }
+      setTimeout(()=>{
+        const el = document.createElement('div');
+        el.className = 'msg '+msg.from;
+        el.innerHTML = msg.text+'<div class="msg-time">'+getTime()+'</div>';
+        body.appendChild(el);
+        body.scrollTop = body.scrollHeight;
+
+        // Show withdraw bar after 2nd message
+        if(i === 1){
+          setTimeout(()=>{
+            document.getElementById('chatEarnBar').classList.add('visible');
+            body.scrollTop = body.scrollHeight;
+          }, 800);
+        }
+
+        // Show register wall after last message
+        if(i === script.length-1){
+          setTimeout(()=>{
+            document.getElementById('registerWall').style.display = 'block';
+            document.getElementById('chatInputArea').style.display = 'none';
+            body.scrollTop = body.scrollHeight;
+          }, 1500);
+        }
+      }, 7000);
+    }, msg.delay);
+  });
+}
+
+function closeChat(){
+  document.getElementById('chatModal').classList.remove('active');
+  document.getElementById('chatEarnBar').classList.remove('visible');
+}
+
+function getTime(){
+  const now = new Date();
+  return now.getHours()+':'+(now.getMinutes()<10?'0':'')+now.getMinutes();
+}
+
+// Click on modal backdrop to close
+document.getElementById('chatModal').addEventListener('click', function(e){
+  if(e.target === this) closeChat();
+});
+
+const tickerNames=['Amina','Kelvin','Rehema','David','Neema','Michael','Grace','John','Mary','Peter','Susan','James'];
+function randomTicker(){
+ const items=[];
+ for(let i=0;i<12;i++){
+   const n=tickerNames[Math.floor(Math.random()*tickerNames.length)];
+   const amt=(50000+Math.floor(Math.random()*450000)).toLocaleString();
+   items.push(`<span>${n} amepokea TSh ${amt}</span>`);
+ }
+ document.querySelector('.ticker-inner').innerHTML=items.join('');
+}
+
+</script>
+</body>
+</html>
